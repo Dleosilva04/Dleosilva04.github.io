@@ -6,7 +6,7 @@
     <title>Cadastro - Grupo</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Adicionando um estilo básico para a interação */
+        /* Estilo básico para interação */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -57,7 +57,7 @@
             color: #333;
         }
 
-        input[type="text"], input[type="email"], textarea {
+        input[type="text"], input[type="email"], input[type="password"], textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -120,7 +120,7 @@
 
     <main>
         <section class="cadastro">
-            <h1>Cadastro - Fale Conosco</h1>
+            <h1>Cadastro - Novo Usuário</h1>
             <form id="formCadastro">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -128,13 +128,16 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" required></textarea>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
 
-                <label for="opiniao">O que podemos melhorar?</label>
-                <textarea id="opiniao" name="opiniao"></textarea>
+                <label for="confirmarSenha">Confirmar Senha:</label>
+                <input type="password" id="confirmarSenha" name="confirmarSenha" required>
 
-                <button type="submit">Enviar</button>
+                <label for="mensagem">Mensagem (opcional):</label>
+                <textarea id="mensagem" name="mensagem"></textarea>
+
+                <button type="submit">Cadastrar</button>
             </form>
 
             <!-- Feedback de status -->
@@ -160,10 +163,10 @@
                 // Validação dos campos
                 const nome = document.getElementById('nome').value;
                 const email = document.getElementById('email').value;
-                const mensagem = document.getElementById('mensagem').value;
-                const opiniao = document.getElementById('opiniao').value;
+                const senha = document.getElementById('senha').value;
+                const confirmarSenha = document.getElementById('confirmarSenha').value;
 
-                if (!nome || !email || !mensagem) {
+                if (!nome || !email || !senha || !confirmarSenha) {
                     // Se algum campo obrigatório não for preenchido
                     document.getElementById('feedback').textContent = 'Por favor, preencha todos os campos obrigatórios.';
                     document.getElementById('feedback').classList.add('error');
@@ -171,8 +174,16 @@
                     return;
                 }
 
+                if (senha !== confirmarSenha) {
+                    // Verifica se as senhas coincidem
+                    document.getElementById('feedback').textContent = 'As senhas não coincidem. Tente novamente.';
+                    document.getElementById('feedback').classList.add('error');
+                    document.getElementById('loading').style.display = 'none';
+                    return;
+                }
+
                 // Se tudo estiver correto, simula um envio bem-sucedido
-                document.getElementById('feedback').textContent = 'Mensagem enviada com sucesso!';
+                document.getElementById('feedback').textContent = 'Usuário cadastrado com sucesso!';
                 document.getElementById('feedback').classList.add('success');
                 document.getElementById('loading').style.display = 'none';
 
