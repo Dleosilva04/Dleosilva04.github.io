@@ -5,6 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exposição - Grupo</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: 'Calibri', sans-serif;
+            background-color: #000; /* Fundo preto */
+            color: white; /* Texto branco */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #333; /* Cor de fundo do header */
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50; /* Cor de destaque para links */
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center; /* Centralizando o texto */
+        }
+
+        .grupo h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-weight: lighter;
+        }
+
+        article {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #555;
+            padding-bottom: 20px;
+        }
+
+        article:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .perfil {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -20,32 +115,19 @@
     <main>
         <section class="grupo">
             <h1>Sobre o Grupo</h1>
-
-            <!-- João da Silva -->
             <article>
-                <h2>Diogo Leonardo</h2>
-                <img src="IMG/foto1.jpg" >
+                <h2>João da Silva</h2>
+                <img src="foto1.jpg" alt="Foto João" class="perfil">
                 <p>Competências: HTML, CSS, JavaScript</p>
-                <p>Experiência Profissional: Analista prevenção a fraude, Assisente ADM </p>
-                <p>Escolaridade: Superior Incompleto </p>
+                <p>Experiência Profissional: Desenvolvedor Front-End</p>
+                <p>Escolaridade: Bacharel em Ciência da Computação</p>
             </article>
-
-            <!-- Maria Oliveira -->
             <article>
                 <h2>Maria Oliveira</h2>
-                <img src="img/foto2.jpg" >
+                <img src="foto2.jpg" alt="Foto Maria" class="perfil">
                 <p>Competências: Design Gráfico, UI/UX</p>
                 <p>Experiência Profissional: Designer de Interfaces</p>
                 <p>Escolaridade: Bacharel em Design Gráfico</p>
-            </article>
-
-            <!-- Carlos Souza -->
-            <article>
-                <h2>Carlos Souza</h2>
-                <img src="img/foto3.jpg" >
-                <p>Competências: PHP, MySQL, Backend</p>
-                <p>Experiência Profissional: Desenvolvedor Backend</p>
-                <p>Escolaridade: Bacharel em Engenharia de Software</p>
             </article>
         </section>
     </main>
