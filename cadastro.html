@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Grupo</title>
+    <title>Contato - Grupo</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* Estilo básico para interação */
@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000000;
+            background-color: #f4f4f9;
         }
 
         header {
@@ -45,7 +45,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .cadastro h1 {
+        .contato h1 {
             text-align: center;
             color: #333;
         }
@@ -57,7 +57,7 @@
             color: #333;
         }
 
-        input[type="text"], input[type="email"], input[type="password"], textarea {
+        input[type="text"], input[type="email"], textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -74,7 +74,7 @@
         button {
             width: 100%;
             padding: 10px;
-            background-color: #DC143C;
+            background-color: #4CAF50;
             border: none;
             color: white;
             font-size: 1.1em;
@@ -84,7 +84,7 @@
         }
 
         button:hover {
-            background-color: #7FFFD4;
+            background-color: #45a049;
         }
 
         .feedback {
@@ -113,31 +113,28 @@
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="contato.html">Contato</a></li> <!-- Alterado para Contato -->
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="cadastro">
-            <h1>Cadastro - Novo Usuário</h1>
-            <form id="formCadastro">
+        <section class="contato">
+            <h1>Entre em Contato e Deixe sua Opinião</h1>
+            <form id="formContato">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" required>
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" required></textarea>
 
-                <label for="confirmarSenha">Confirmar Senha:</label>
-                <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+                <label for="opiniao">Sua Opinião sobre o Site:</label>
+                <textarea id="opiniao" name="opiniao" placeholder="O que você acha do site? O que pode ser melhorado?" required></textarea>
 
-                <label for="mensagem">Mensagem (opcional):</label>
-                <textarea id="mensagem" name="mensagem"></textarea>
-
-                <button type="submit">Cadastrar</button>
+                <button type="submit">Enviar</button>
             </form>
 
             <!-- Feedback de status -->
@@ -151,7 +148,7 @@
     </footer>
 
     <script>
-        document.getElementById('formCadastro').addEventListener('submit', function (event) {
+        document.getElementById('formContato').addEventListener('submit', function (event) {
             event.preventDefault(); // Impede o envio padrão do formulário
 
             // Exibir o texto de carregamento enquanto o formulário é processado
@@ -160,13 +157,13 @@
 
             // Simula um atraso de envio
             setTimeout(function () {
-                // Validação dos campos
+                // Coleta os valores dos campos
                 const nome = document.getElementById('nome').value;
                 const email = document.getElementById('email').value;
-                const senha = document.getElementById('senha').value;
-                const confirmarSenha = document.getElementById('confirmarSenha').value;
+                const mensagem = document.getElementById('mensagem').value;
+                const opiniao = document.getElementById('opiniao').value;
 
-                if (!nome || !email || !senha || !confirmarSenha) {
+                if (!nome || !email || !mensagem || !opiniao) {
                     // Se algum campo obrigatório não for preenchido
                     document.getElementById('feedback').textContent = 'Por favor, preencha todos os campos obrigatórios.';
                     document.getElementById('feedback').classList.add('error');
@@ -174,21 +171,13 @@
                     return;
                 }
 
-                if (senha !== confirmarSenha) {
-                    // Verifica se as senhas coincidem
-                    document.getElementById('feedback').textContent = 'As senhas não coincidem. Tente novamente.';
-                    document.getElementById('feedback').classList.add('error');
-                    document.getElementById('loading').style.display = 'none';
-                    return;
-                }
-
                 // Se tudo estiver correto, simula um envio bem-sucedido
-                document.getElementById('feedback').textContent = 'Usuário cadastrado com sucesso!';
+                document.getElementById('feedback').textContent = 'Mensagem enviada com sucesso! Agradecemos seu contato e sua opinião.';
                 document.getElementById('feedback').classList.add('success');
                 document.getElementById('loading').style.display = 'none';
 
                 // Limpar o formulário após o envio
-                document.getElementById('formCadastro').reset();
+                document.getElementById('formContato').reset();
             }, 2000); // Simula o tempo de envio de 2 segundos
         });
     </script>
